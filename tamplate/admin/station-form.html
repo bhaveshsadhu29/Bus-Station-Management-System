@@ -1,0 +1,35 @@
+{# templates/station/station_form.html #}
+{% extends "admin/base/base2.html" %}
+{% load static %}
+
+{% block content %}
+  <main id="main" class="main">
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Station Form</h5>
+    <form method="post" class="needs-validation" novalidate>
+      {% csrf_token %}
+      <div class="row g-3">
+        <div class="col-md-4">
+          <label class="form-label">Station Name</label>
+          {{ form.name }}
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">City</label>
+          {{ form.city }}
+        </div>
+        <div class="col-md-12">
+          <label class="form-label">Address</label>
+          {{ form.address }}
+        </div>
+      </div>
+      <div class="col-12 mt-3">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+  </main><!-- End #main -->
+
+{% endblock %}

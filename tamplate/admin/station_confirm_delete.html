@@ -1,0 +1,14 @@
+{% extends "admin/base/base2.html" %}
+{% block content %}
+ <main id="main" class="main">
+
+<h2>Confirm Deletion</h2>
+<p>Are you sure you want to delete "{{ object.name }}"?</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Yes, delete</button>
+  <a href="/" class="btn btn-secondary">Cancel</a>
+</form>
+  </main><!-- End #main -->
+
+{% endblock %}
