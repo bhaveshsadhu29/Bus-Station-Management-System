@@ -211,14 +211,16 @@
               <hr class="dropdown-divider">
             </li>
 <li>
-  <form method="post" action="{% url 'account:logout' %}" style="display: inline;">
+  <a href="#" class="dropdown-item d-flex align-items-center"
+     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+    <i class="bi bi-box-arrow-right"></i>
+    <span>Sign Out</span>
+  </a>
+  <form id="logout-form" method="post" action="{% url 'account:logout' %}" style="display: none;">
     {% csrf_token %}
-    <button type="submit" class="dropdown-item d-flex align-items-center" style="border: none; background: none; padding: 0;">
-      <i class="bi bi-box-arrow-right"></i>
-      <span>Sign Out</span>
-    </button>
   </form>
 </li>
+
 
 
           </ul><!-- End Profile Dropdown Items -->
