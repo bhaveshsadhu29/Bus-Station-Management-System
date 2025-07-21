@@ -1,0 +1,54 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# If using virtualenv:
+venv/
+env/
+ENV/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+
+# Python packaging
+*.egg-info/
+dist/
+build/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Migrations (optional: sometimes you want to keep migrations in git)
+*/migrations/*.pyc
+*/migrations/*.py[cod]
+*/migrations/__pycache__/
+
+# If using pytest cache
+.pytest_cache/
+
+# Logs
+*.log
+
+# Static files collected by collectstatic
+staticfiles/
+
+# dotenv environment variables file
+.env

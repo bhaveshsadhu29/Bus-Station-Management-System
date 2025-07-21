@@ -1,7 +1,10 @@
-{% extends "admin/base/base2.html" %}
 {% load static %}
-
-{% block content %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+{% include "admin/base/head.html" %}
+<body>
 <main>
   <div class="container">
     <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
@@ -71,4 +74,8 @@
     </section>
   </div>
 </main>
-{% endblock content %}
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+{% include "admin/base/script.html" %}
+</body>
+
+</html>

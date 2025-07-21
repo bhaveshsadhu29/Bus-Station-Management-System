@@ -1,0 +1,47 @@
+{% extends "admin/base/base2.html" %}
+{% block content %}
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>{% if view.object %}Edit{% else %}Add{% endif %} Route</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'account:home' %}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'account:route_list' %}">Routes</a></li>
+        <li class="breadcrumb-item active">{% if view.object %}Edit{% else %}Add{% endif %}</li>
+      </ol>
+    </nav>
+  </div>
+
+  <section class="section">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{% if view.object %}Edit{% else %}Add{% endif %} Route</h5>
+
+        <form method="post" class="row g-3 needs-validation" novalidate>
+          {% csrf_token %}
+          <div class="col-md-6">
+            <label for="id_origin" class="form-label">Origin</label>
+            <input type="text" name="origin" id="id_origin" class="form-control" value="{{ form.origin.value|default:'' }}" required>
+            <div class="invalid-feedback">Please enter origin.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="id_destination" class="form-label">Destination</label>
+            <input type="text" name="destination" id="id_destination" class="form-control" value="{{ form.destination.value|default:'' }}" required>
+            <div class="invalid-feedback">Please enter destination.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="id_distance_km" class="form-label">Distance (km)</label>
+            <input type="number" step="0.1" name="distance_km" id="id_distance_km" class="form-control" value="{{ form.distance_km.value|default:'' }}" required>
+            <div class="invalid-feedback">Please enter distance.</div>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="{% url 'account:route_list' %}" class="btn btn-secondary">Cancel</a>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

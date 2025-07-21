@@ -1,0 +1,51 @@
+{% extends "admin/base/base2.html" %}
+{% load static %}
+{% block content %}
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Bus Details</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'account:home' %}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'account:bus_list' %}">Buses</a></li>
+        <li class="breadcrumb-item active">Details</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Bus: {{ object.number_plate }}</h5>
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <strong>Number Plate:</strong> {{ object.number_plate }}
+              </li>
+              <li class="list-group-item">
+                <strong>Driver Name:</strong> {{ object.driver_name }}
+              </li>
+              <li class="list-group-item">
+                <strong>Capacity:</strong> {{ object.capacity }}
+              </li>
+            </ul>
+
+            <div class="mt-4">
+              <a href="{% url 'account:bus_edit' object.pk %}" class="btn btn-warning">Edit</a>
+              <a href="{% url 'account:bus_delete' object.pk %}" class="btn btn-danger">Delete</a>
+              <a href="{% url 'account:bus_list' %}" class="btn btn-secondary">Back to List</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+{% endblock %}

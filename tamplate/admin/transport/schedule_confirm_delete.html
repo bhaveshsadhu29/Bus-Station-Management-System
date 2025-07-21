@@ -1,0 +1,12 @@
+{% extends "admin/base/base2.html" %}
+{% block content %}
+<main id="main" class="main">
+  <h2>Confirm Delete Schedule</h2>
+  <p>Are you sure you want to delete schedule: <strong>{{ object }}</strong>?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+    <a href="{% url 'account:schedule_list' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+</main>
+{% endblock %}

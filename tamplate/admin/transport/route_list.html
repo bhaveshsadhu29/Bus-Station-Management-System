@@ -1,0 +1,49 @@
+{% extends "admin/base/base2.html" %}
+{% block content %}
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Routes</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'account:home' %}">Home</a></li>
+        <li class="breadcrumb-item active">Routes</li>
+      </ol>
+    </nav>
+  </div>
+
+  <section class="section">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">All Routes</h5>
+        <a href="{% url 'account:route_add' %}" class="btn btn-primary mb-3">+ Add New Route</a>
+        <table class="table datatable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Origin</th>
+              <th>Destination</th>
+              <th>Distance (km)</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for route in routes %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ route.origin }}</td>
+              <td>{{ route.destination }}</td>
+              <td>{{ route.distance_km }}</td>
+              <td>
+                <a href="{% url 'account:route_detail' route.pk %}" class="btn btn-info btn-sm">View</a>
+                <a href="{% url 'account:route_edit' route.pk %}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="{% url 'account:route_delete' route.pk %}" class="btn btn-danger btn-sm">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
